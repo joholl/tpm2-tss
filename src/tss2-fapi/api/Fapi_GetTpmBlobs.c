@@ -217,7 +217,8 @@ Fapi_GetTpmBlobs_Finish(
 
             /* Marshal the public data to the output parameter. */
             if (tpm2bPublic && tpm2bPublicSize) {
-                *tpm2bPublic = malloc(sizeof(uint8_t) * sizeof(TPM2B_PUBLIC));
+                // NOLINTNEXTLINE(clang-analyzer-unix.MallocSizeof)
+                *tpm2bPublic = malloc(sizeof(TPM2B_PUBLIC));
                 goto_if_null(*tpm2bPublic, "Out of memory.",
                         TSS2_FAPI_RC_MEMORY, error_cleanup);
                 offset = 0;
