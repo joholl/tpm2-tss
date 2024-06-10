@@ -1877,9 +1877,9 @@ struct TPM2B_SENSITIVE {
     TPMT_SENSITIVE sensitiveArea;
 };
 
-/* Definition of _PRIVATE Structure <> */
-typedef struct _PRIVATE _PRIVATE;
-struct _PRIVATE {
+/* Definition of TPM_OPAQUE_PRIVATE Structure <> */
+typedef struct TPM_OPAQUE_PRIVATE TPM_OPAQUE_PRIVATE;
+struct TPM_OPAQUE_PRIVATE {
     TPM2B_DIGEST integrityOuter;
     TPM2B_DIGEST integrityInner; /* could also be a TPM2B_IV */
     TPM2B_SENSITIVE sensitive;   /* the sensitive area */
@@ -1889,7 +1889,7 @@ struct _PRIVATE {
 typedef struct TPM2B_PRIVATE TPM2B_PRIVATE;
 struct TPM2B_PRIVATE {
     UINT16 size;
-    BYTE buffer[sizeof(_PRIVATE)];
+    BYTE buffer[sizeof(TPM_OPAQUE_PRIVATE)];
 };
 
 /* Definition of TPMS_ID_OBJECT Structure <> */

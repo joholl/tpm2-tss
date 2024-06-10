@@ -7,8 +7,6 @@
 #   want to turn into opaque or strong types. They are part of the API.
 # -bugprone-implicit-widening-of-multiplication-result
 #   [TODO]
-#  -bugprone-reserved-identifier
-#   [TODO]
 #
 # -clang-analyzer-optin.performance.Padding
 #   We prefer logical/semantic order over (potentially insignificant)
@@ -25,7 +23,6 @@ Checks: "\
   -bugprone-branch-clone, \
   -bugprone-easily-swappable-parameters, \
   -bugprone-implicit-widening-of-multiplication-result, \
-  -bugprone-reserved-identifier, \
   \
   clang-analyzer, \
   -clang-analyzer-optin.performance.Padding, \

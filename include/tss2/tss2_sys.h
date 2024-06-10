@@ -23,7 +23,7 @@ extern "C" {
 #endif
 
 /* SAPI context blob */
-typedef struct _TSS2_SYS_OPAQUE_CONTEXT_BLOB TSS2_SYS_CONTEXT;
+typedef struct TSS2_SYS_OPAQUE_CONTEXT_BLOB TSS2_SYS_CONTEXT;
 
 #define TSS2_SYS_MAX_SESSIONS 3
 

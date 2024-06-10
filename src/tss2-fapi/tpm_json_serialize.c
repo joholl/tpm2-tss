@@ -4191,9 +4191,9 @@ ifapi_json_TPM2B_PRIVATE_serialize(const TPM2B_PRIVATE *in, json_object **jso)
 {
     return_if_null(in, "Bad reference.", TSS2_FAPI_RC_BAD_REFERENCE);
 
-    if (in->size > sizeof(_PRIVATE)) {
-        LOG_ERROR("Too many bytes for array (%"PRIuPTR" > %"PRIuPTR" = sizeof(_PRIVATE))",
-                  (size_t)in->size, (size_t)sizeof(_PRIVATE));
+    if (in->size > sizeof(TPM_OPAQUE_PRIVATE)) {
+        LOG_ERROR("Too many bytes for array (%"PRIuPTR" > %"PRIuPTR" = sizeof(TPM_OPAQUE_PRIVATE))",
+                  (size_t)in->size, (size_t)sizeof(TPM_OPAQUE_PRIVATE));
         return TSS2_FAPI_RC_BAD_VALUE;
     }
     char hex_string[((size_t)in->size)*2+1];

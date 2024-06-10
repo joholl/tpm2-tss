@@ -4419,7 +4419,7 @@ ifapi_json_TPM2B_PRIVATE_deserialize(json_object *jso,  TPM2B_PRIVATE *out)
     return_if_null(out, "Bad reference.", TSS2_FAPI_RC_BAD_REFERENCE);
 
     UINT16 size = 0;
-    r = ifapi_json_byte_deserialize(jso, sizeof(_PRIVATE), (BYTE *)&out->buffer,
+    r = ifapi_json_byte_deserialize(jso, sizeof(TPM_OPAQUE_PRIVATE), (BYTE *)&out->buffer,
                                      &size);
     return_if_error(r, "byte serialize");
 
