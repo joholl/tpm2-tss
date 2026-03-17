@@ -13,12 +13,12 @@ jobs:
     strategy:
       matrix:
         docker_image: [
-          ghcr.io/tpm2-software/fedora-32@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
-          ghcr.io/tpm2-software/opensuse-leap@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
+          ghcr.io/tpm2-software/fedora-32@sha256:be98523aac16f8d7e0728f775afece31ec8f2730470bb0a8e3e39373ca72e6f7,
+          ghcr.io/tpm2-software/opensuse-leap@sha256:55c2da5db51e359a1c462b7a1e9a5a836a51cea1e2f5e70b361304c53568ab80,
           ghcr.io/tpm2-software/ubuntu-22.04@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
-          ghcr.io/tpm2-software/ubuntu-24.04@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
-          ghcr.io/tpm2-software/alpine-3.15@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
-          ghcr.io/tpm2-software/arch-linux@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef
+          ghcr.io/tpm2-software/ubuntu-24.04@sha256:36b8cc4ff293ec9e7f748ea98a472c0ace69c75d244b6b84584b53a0805505be,
+          ghcr.io/tpm2-software/alpine-3.15@sha256:8fff89b25611240b95759a13d8f374173997097e8a4ede0cb93bc982eb14a8ed,
+          ghcr.io/tpm2-software/arch-linux@sha256:288ca6db455f2b55fa3850757cb1e6a5cd401f225497881a2e1a01dea312d020
         ]
         compiler: [gcc, clang]
     steps:
