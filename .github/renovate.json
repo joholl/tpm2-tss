@@ -1,0 +1,21 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended"
+    ],
+    "customManagers": [
+        {
+            "customType": "regex",
+            "description": "Update Docker image digests in CI workflow matrix",
+            "managerFilePatterns": [
+                "/^\\.github/workflows/main\\.yml$/"
+            ],
+            "matchStrings": [
+                "(?<depName>ghcr\\.io/tpm2-software/[a-z][a-z0-9._-]+)@(?<currentDigest>sha256:[a-f0-9]+)"
+            ],
+            "datasourceTemplate": "docker",
+            "currentValueTemplate": "latest",
+            "versioningTemplate": "loose"
+        }
+    ]
+}

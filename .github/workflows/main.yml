@@ -12,7 +12,14 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     strategy:
       matrix:
-        docker_image: [fedora-32, opensuse-leap, ubuntu-22.04, ubuntu-24.04, alpine-3.15, arch-linux ]
+        docker_image: [
+          ghcr.io/tpm2-software/fedora-32@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
+          ghcr.io/tpm2-software/opensuse-leap@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
+          ghcr.io/tpm2-software/ubuntu-22.04@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
+          ghcr.io/tpm2-software/ubuntu-24.04@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
+          ghcr.io/tpm2-software/alpine-3.15@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef,
+          ghcr.io/tpm2-software/arch-linux@sha256:7ac215b86da42081ab53c717ae6daf62d6eed1303872cd56caebcc2656405cef
+        ]
         compiler: [gcc, clang]
     steps:
       - name: Check out repository
