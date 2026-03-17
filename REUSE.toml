@@ -126,3 +126,9 @@ path = "sphinx/requirements.txt"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024 Jürgen Repp"
 SPDX-License-Identifier = "BSD-2-Clause"
+
+[[annotations]]
+path = [ ".github/renovate.json" ]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 Infineon Technologies AG"
+SPDX-License-Identifier = "BSD-2-Clause"
