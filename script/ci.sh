@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# SPDX-License-Identifier: BSD-2
+# SPDX-FileCopyrightText: 2022 Abhishek Malik
+# SPDX-License-Identifier: BSD-2-Clause
 
 set -exo pipefail
 
