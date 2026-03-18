@@ -1,0 +1,28 @@
+{
+    // see https://docs.renovatebot.com/configuration-options
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended",
+        "docker:pinDigests"
+    ],
+    // The built-in "github-actions" manager handles Docker images in
+    // jobs.<id>.container and jobs.<id>.services (e.g. clang-tidy.yml,
+    // clang-format.yml). This custom manager covers Docker image refs
+    // elsewhere, which the built-in manager cannot parse.
+    "customManagers": [
+        {
+            "customType": "regex",
+            "description": "Pin and update Docker image digests in main CI workflow",
+            "managerFilePatterns": [
+                "/^\\.github/workflows/main\\.yml$/"
+            ],
+            "matchStrings": [
+                "ghcr.io\\/(?<depName>tpm2-software\\/[a-z][a-z0-9._-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
+            ],
+            "datasourceTemplate": "docker",
+            "registryUrlTemplate": "https://ghcr.io",
+            "currentValueTemplate": "latest",
+            "versioningTemplate": "docker"
+        }
+    ]
+}
