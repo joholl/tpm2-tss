@@ -11,10 +11,10 @@ COV_SCRIPT="coverity.run"
 export PROJECT=$PROJECT_NAME
 export DOCKER_BUILD_DIR="/workspace/$PROJECT"
 
-# if no DOCKER_IMAGE is set, warn and default to fedora-30
+# if no DOCKER_IMAGE is set, warn and default to fedora-32
 if [ -z "$DOCKER_IMAGE" ]; then
   echo "WARN: DOCKER_IMAGE is not set, defaulting to fedora-32"
-  export DOCKER_IMAGE="fedora-32"
+  export DOCKER_IMAGE="ghcr.io/tpm2-software/fedora-32"
 fi
 
 #
@@ -93,7 +93,7 @@ env_args_from_docker_env_file() {
 }
 
 docker run --cap-add=SYS_PTRACE $ci_env $(env_args_from_docker_env_file .ci/docker.env) \
-  -v "$(pwd):$DOCKER_BUILD_DIR" "ghcr.io/tpm2-software/$DOCKER_IMAGE" \
+  -v "$(pwd):$DOCKER_BUILD_DIR" "$DOCKER_IMAGE" \
   /bin/bash -c "$DOCKER_BUILD_DIR/.ci/$script"
 
 exit 0

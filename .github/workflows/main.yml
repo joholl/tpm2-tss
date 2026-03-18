@@ -12,7 +12,14 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     strategy:
       matrix:
-        docker_image: [fedora-32, opensuse-leap, ubuntu-22.04, ubuntu-24.04, alpine-3.15, arch-linux ]
+        docker_image: [
+          ghcr.io/tpm2-software/fedora-32,
+          ghcr.io/tpm2-software/opensuse-leap,
+          ghcr.io/tpm2-software/ubuntu-22.04,
+          ghcr.io/tpm2-software/ubuntu-24.04,
+          ghcr.io/tpm2-software/alpine-3.15,
+          ghcr.io/tpm2-software/arch-linux
+        ]
         compiler: [gcc, clang]
     steps:
       - name: Check out repository
@@ -47,7 +54,7 @@ jobs:
       - name: Launch Action
         env:
           CC: clang
-          DOCKER_IMAGE: fedora-32
+          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32
           SCANBUILD: yes
           WITH_TCTI: swtpm
           PROJECT_NAME: ${{ github.event.repository.name }}
@@ -70,7 +77,7 @@ jobs:
       - name: Launch Action
         env:
           CC: gcc
-          DOCKER_IMAGE: fedora-32
+          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32
           TEST_TCTI_CONFIG: true
           PROJECT_NAME: ${{ github.event.repository.name }}
         run: script/ci.sh
@@ -84,7 +91,10 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     strategy:
       matrix:
-        docker_image: [ubuntu-20.04, ubuntu-22.04-mbedtls-3.1]
+        docker_image: [
+          ghcr.io/tpm2-software/ubuntu-20.04,
+          ghcr.io/tpm2-software/ubuntu-22.04-mbedtls-3.1
+        ]
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -118,7 +128,7 @@ jobs:
       - name: Launch Action
         env:
           CC: gcc
-          DOCKER_IMAGE: ubuntu-20.04
+          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04
           WITH_CRYPTO: none
           PROJECT_NAME: ${{ github.event.repository.name }}
         run: script/ci.sh
@@ -140,7 +150,7 @@ jobs:
       - name: Launch Action
         env:
           CC: gcc
-          DOCKER_IMAGE: ubuntu-20.04
+          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04
           ENABLE_COVERAGE: true
           WITH_TCTI: swtpm
           PROJECT_NAME: ${{ github.event.repository.name }}
@@ -167,7 +177,7 @@ jobs:
             fetch-depth: 0
       - name: Launch Action
         env:
-          DOCKER_IMAGE: fedora-32
+          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32
           GEN_FUZZ: 1
           CXX: clang++
           CC: clang
@@ -196,7 +206,7 @@ jobs:
           REPO_BRANCH: ${{ github.ref }}
           REPO_NAME: ${{ github.repository }}
           ENABLE_COVERITY: true
-          DOCKER_IMAGE: ubuntu-20.04
+          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04
           CC: gcc
           COVERITY_SCAN_TOKEN: ${{ secrets.COVERITY_SCAN_TOKEN }}
           COVERITY_SUBMISSION_EMAIL: tadeusz.struk@intel.com
