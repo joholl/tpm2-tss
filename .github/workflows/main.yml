@@ -23,7 +23,7 @@ jobs:
         compiler: [gcc, clang]
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
             fetch-depth: 0
       - name: fix-sanitizer
@@ -46,7 +46,7 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
             fetch-depth: 0
       - name: fix-sanitizer
@@ -69,7 +69,7 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
             fetch-depth: 0
       - name: fix-sanitizer
@@ -97,7 +97,7 @@ jobs:
         ]
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
             fetch-depth: 0
       - name: fix-sanitizer
@@ -120,7 +120,7 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
             fetch-depth: 0
       - name: fix-sanitizer
@@ -142,7 +142,7 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
             fetch-depth: 0
       - name: fix-sanitizer
@@ -172,7 +172,7 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
             fetch-depth: 0
       - name: Launch Action
@@ -193,7 +193,7 @@ jobs:
     if: contains(github.ref, 'coverity_scan')
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
             fetch-depth: 0
       - name: fix-sanitizer
