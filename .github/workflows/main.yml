@@ -13,12 +13,12 @@ jobs:
     strategy:
       matrix:
         docker_image: [
-          ghcr.io/tpm2-software/fedora-32,
-          ghcr.io/tpm2-software/opensuse-leap,
-          ghcr.io/tpm2-software/ubuntu-22.04,
-          ghcr.io/tpm2-software/ubuntu-24.04,
-          ghcr.io/tpm2-software/alpine-3.15,
-          ghcr.io/tpm2-software/arch-linux
+          ghcr.io/tpm2-software/fedora-32@sha256:be98523aac16f8d7e0728f775afece31ec8f2730470bb0a8e3e39373ca72e6f7,
+          ghcr.io/tpm2-software/opensuse-leap@sha256:55c2da5db51e359a1c462b7a1e9a5a836a51cea1e2f5e70b361304c53568ab80,
+          ghcr.io/tpm2-software/ubuntu-22.04@sha256:fa1bc6c13d6d1ae215acdd3ccc8d968727bd41170b04c667600b33140e2694a1,
+          ghcr.io/tpm2-software/ubuntu-24.04@sha256:36b8cc4ff293ec9e7f748ea98a472c0ace69c75d244b6b84584b53a0805505be,
+          ghcr.io/tpm2-software/alpine-3.15@sha256:8fff89b25611240b95759a13d8f374173997097e8a4ede0cb93bc982eb14a8ed,
+          ghcr.io/tpm2-software/arch-linux@sha256:288ca6db455f2b55fa3850757cb1e6a5cd401f225497881a2e1a01dea312d020
         ]
         compiler: [gcc, clang]
     steps:
@@ -54,7 +54,7 @@ jobs:
       - name: Launch Action
         env:
           CC: clang
-          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32
+          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32@sha256:be98523aac16f8d7e0728f775afece31ec8f2730470bb0a8e3e39373ca72e6f7
           SCANBUILD: yes
           WITH_TCTI: swtpm
           PROJECT_NAME: ${{ github.event.repository.name }}
@@ -77,7 +77,7 @@ jobs:
       - name: Launch Action
         env:
           CC: gcc
-          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32
+          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32@sha256:be98523aac16f8d7e0728f775afece31ec8f2730470bb0a8e3e39373ca72e6f7
           TEST_TCTI_CONFIG: true
           PROJECT_NAME: ${{ github.event.repository.name }}
         run: script/ci.sh
@@ -92,8 +92,8 @@ jobs:
     strategy:
       matrix:
         docker_image: [
-          ghcr.io/tpm2-software/ubuntu-20.04,
-          ghcr.io/tpm2-software/ubuntu-22.04-mbedtls-3.1
+          ghcr.io/tpm2-software/ubuntu-20.04@sha256:05b4d4bde31841ade60ca5d72b7bccfba149e93612e8f2d77296f7926346d865,
+          ghcr.io/tpm2-software/ubuntu-22.04-mbedtls-3.1@sha256:b6aef9a38a426320d87628319c6d0f2cf05e7139ff88c8cffb3ccf9246a5ca67
         ]
     steps:
       - name: Check out repository
@@ -128,7 +128,7 @@ jobs:
       - name: Launch Action
         env:
           CC: gcc
-          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04
+          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04@sha256:05b4d4bde31841ade60ca5d72b7bccfba149e93612e8f2d77296f7926346d865
           WITH_CRYPTO: none
           PROJECT_NAME: ${{ github.event.repository.name }}
         run: script/ci.sh
@@ -150,7 +150,7 @@ jobs:
       - name: Launch Action
         env:
           CC: gcc
-          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04
+          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04@sha256:05b4d4bde31841ade60ca5d72b7bccfba149e93612e8f2d77296f7926346d865
           ENABLE_COVERAGE: true
           WITH_TCTI: swtpm
           PROJECT_NAME: ${{ github.event.repository.name }}
@@ -177,7 +177,7 @@ jobs:
             fetch-depth: 0
       - name: Launch Action
         env:
-          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32
+          DOCKER_IMAGE: ghcr.io/tpm2-software/fedora-32@sha256:be98523aac16f8d7e0728f775afece31ec8f2730470bb0a8e3e39373ca72e6f7
           GEN_FUZZ: 1
           CXX: clang++
           CC: clang
@@ -206,7 +206,7 @@ jobs:
           REPO_BRANCH: ${{ github.ref }}
           REPO_NAME: ${{ github.repository }}
           ENABLE_COVERITY: true
-          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04
+          DOCKER_IMAGE: ghcr.io/tpm2-software/ubuntu-20.04@sha256:05b4d4bde31841ade60ca5d72b7bccfba149e93612e8f2d77296f7926346d865
           CC: gcc
           COVERITY_SCAN_TOKEN: ${{ secrets.COVERITY_SCAN_TOKEN }}
           COVERITY_SUBMISSION_EMAIL: tadeusz.struk@intel.com
