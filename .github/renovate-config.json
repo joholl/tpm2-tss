@@ -7,11 +7,8 @@
     "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
     "onboarding": false,
     "platform": "github",
-    "forkProcessing": "enabled",
+    "forkProcessing": "enabled",  // TODO remove me
     "configMigration": true,
-    "repositories": [
-        "joholl/tpm2-tss" // TODO: change me
-    ],
     "packageRules": [
         {
             "description": "Group ghcr.io/tpm2-software Docker images into one PR",

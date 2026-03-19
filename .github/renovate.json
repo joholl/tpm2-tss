@@ -19,6 +19,7 @@
             "matchStrings": [
                 "ghcr.io\\/(?<depName>tpm2-software\\/[a-z][a-z0-9._-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
             ],
+            "autoReplaceStringTemplate": "ghcr.io/{{depName}}{{#if newDigest}}@{{newDigest}}{{/if}}",
             "datasourceTemplate": "docker",
             "registryUrlTemplate": "https://ghcr.io",
             "currentValueTemplate": "latest",
