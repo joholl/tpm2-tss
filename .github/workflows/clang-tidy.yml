@@ -9,7 +9,7 @@ jobs:
   clang-tidy-check:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/tpm2-software/ubuntu-24.04
+      image: ghcr.io/tpm2-software/ubuntu-24.04@sha256:36b8cc4ff293ec9e7f748ea98a472c0ace69c75d244b6b84584b53a0805505be
     steps:
     - uses: actions/checkout@v4
       with:
